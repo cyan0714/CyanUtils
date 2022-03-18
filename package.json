@@ -1,0 +1,21 @@
+{
+  "name": "vae-utils",
+  "version": "1.0.1",
+  "description": "Utility functions commonly used at work",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cyan0714/CyanUtils"
+  },
+  "homepage": "https://github.com/cyan0714/CyanUtils",
+  "keywords": [
+    "yan",
+    "cyan",
+    "utils"
+  ],
+  "author": "Shiyan Chen",
+  "license": "MIT"
+}
