@@ -38,85 +38,22 @@ export function isPhone(s) {
   return /^([0-9]{3,4}-)?[0-9]{7,8}$/.test(s)
 }
 
-// 判断身份证号码
-export function cardid(code) {
-  let list = []
-  let result = true
-  let msg = ''
-  var city = {
-    11: '北京',
-    12: '天津',
-    13: '河北',
-    14: '山西',
-    15: '内蒙古',
-    21: '辽宁',
-    22: '吉林',
-    23: '黑龙江 ',
-    31: '上海',
-    32: '江苏',
-    33: '浙江',
-    34: '安徽',
-    35: '福建',
-    36: '江西',
-    37: '山东',
-    41: '河南',
-    42: '湖北 ',
-    43: '湖南',
-    44: '广东',
-    45: '广西',
-    46: '海南',
-    50: '重庆',
-    51: '四川',
-    52: '贵州',
-    53: '云南',
-    54: '西藏 ',
-    61: '陕西',
-    62: '甘肃',
-    63: '青海',
-    64: '宁夏',
-    65: '新疆',
-    71: '台湾',
-    81: '香港',
-    82: '澳门',
-    91: '国外 '
+/**
+ * @description: 大陆居民身份证或军警身份证
+ * @param {*} str
+ * @return {*}
+ */
+ export const regIdCard = str => {
+  const weight_factor = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
+  const check_code = ['1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2'];
+  const idcard_patter = /^[1-9][0-9]{5}([1][9][0-9]{2}|[2][0][0|1][0-9])([0][1-9]|[1][0|1|2])([0][1-9]|[1|2][0-9]|[3][0|1])[0-9]{3}([0-9]|[X])$/;
+  const format = idcard_patter.test(str);
+  const seventeen = str.substring(0, 17);
+  let num = 0;
+  for (let i = 0; i < seventeen.length; i++) {
+    num = num + seventeen[i] * weight_factor[i];
   }
-  if (!validatenull(code)) {
-    if (code.length == 18) {
-      if (!code || !/(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(code)) {
-        msg = '证件号码格式错误'
-      } else if (!city[code.substr(0, 2)]) {
-        msg = '地址编码错误'
-      } else {
-        //18位身份证需要验证最后一位校验位
-        code = code.split('')
-        //∑(ai×Wi)(mod 11)
-        //加权因子
-        var factor = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2]
-        //校验位
-        var parity = [1, 0, 'X', 9, 8, 7, 6, 5, 4, 3, 2, 'x']
-        var sum = 0
-        var ai = 0
-        var wi = 0
-        for (var i = 0; i < 17; i++) {
-          ai = code[i]
-          wi = factor[i]
-          sum += ai * wi
-        }
-        if (parity[sum % 11] != code[17]) {
-          msg = '证件号码校验位错误'
-        } else {
-          result = false
-        }
-      }
-    } else {
-      msg = '证件号码长度不为18位'
-    }
-  } else {
-    msg = '证件号码不能为空'
-  }
-  list.push(result)
-  list.push(msg)
-  return list
+  return str[17] === check_code[num % 11] && format ? true : false;
 }
 
 // 小写字母
@@ -259,6 +196,14 @@ export const haveCNChars = value => {
   return /[\u4e00-\u9fa5]/.test(value)
 }
 
+// 人名是否是中文校验
+export const StringIsCNName = str => {
+  if (!str.trim()) return false;
+  let re = /[^\u4e00-\u9fa5]/;
+  if (re.test(str)) return false;
+  return true;
+};
+
 /**
  * 验证不能包含字母
  * @param { string } value
@@ -328,3 +273,23 @@ export const isEmojiCharacter = value => {
   }
   return false
 }
+//  来往内地通行证（香港居民）
+ export const StringIsHongKongTXZ = str => {
+  if (!str.trim()) return false;
+  let re = new RegExp(/^([Hh]\d{8})$/);
+  return re.test(str);
+};
+
+// 来往内地通行证（澳门居民）
+export const StringIsMacaoTXZ = str => {
+  if (!str.trim()) return false;
+  let re = new RegExp(/^([Mm]\d{8})$/);
+  return re.test(str);
+};
+
+// 来往大陆通行证（台湾居民）
+export const StringIsTaiWanTXZ = str => {
+  if (!str.trim()) return false;
+  let re = new RegExp(/^\d{8}$/);
+  return re.test(str);
+};

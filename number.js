@@ -89,21 +89,9 @@ export const intToChinese = (value) => {
     });
  }
  
-// 数字千分位分隔
+// 数字千位符分隔
 export const numThousandFormat = (n) => {
-  let num = n.toString();
-  let len = num.length;
-  if (len <= 3) {
-      return num;
-  } else {
-      let temp = '';
-      let remainder = len % 3;
-      if (remainder > 0) { // 不是3的整数倍
-          return num.slice(0, remainder) + ',' + num.slice(remainder, len).match(/\d{3}/g).join(',') + temp;
-      } else { // 3的整数倍
-          return num.slice(0, len).match(/\d{3}/g).join(',') + temp; 
-      }
-  }
+  return (nums || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,');
 }
 
 // 格式化金额(千分符、小数点保留两位)
