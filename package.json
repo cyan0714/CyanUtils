@@ -1,6 +1,6 @@
 {
   "name": "vae-utils",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Commonly used utility functions at work",
   "main": "index.js",
   "scripts": {
