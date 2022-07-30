@@ -1,5 +1,5 @@
 // 判断是移动还是 PC 设备
-export const isMobile = () => {
+const isMobile = () => {
   if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iOS|iPad|Backerry|WebOS|Symbian|Windows Phone|Phone)/i))) {
 		return 'mobile';
   }
@@ -7,18 +7,18 @@ export const isMobile = () => {
 }
 
 // 判断是否是苹果还是安卓移动设备
-export const isAppleMobileDevice = () => {
+const isAppleMobileDevice = () => {
   let reg = /iphone|ipod|ipad|Macintosh/i;
   return reg.test(navigator.userAgent.toLowerCase());
 }
 
 // 判断是否是安卓移动设备
-export const isAndroidMobileDevice = () => {
+const isAndroidMobileDevice = () => {
   return /android/i.test(navigator.userAgent.toLowerCase());
 }
 
 // 判断是 Windows 还是 Mac 系统
-export const osType = () => {
+const osType = () => {
   const agent = navigator.userAgent.toLowerCase();
   const isMac = /macintosh|mac os x/i.test(navigator.userAgent);
   const isWindows = agent.indexOf("win64") >= 0 || agent.indexOf("wow64") >= 0 || agent.indexOf("win32") >= 0 || agent.indexOf("wow32") >= 0;
@@ -31,7 +31,7 @@ export const osType = () => {
 }
 
 // 判断是否是微信/QQ内置浏览器
-export const broswer = () => {
+const broswer = () => {
   const ua = navigator.userAgent.toLowerCase();
   if (ua.match(/MicroMessenger/i) == "micromessenger") {
       return "weixin";
@@ -42,7 +42,7 @@ export const broswer = () => {
 }
 
 // 浏览器型号和版本
-export const getExplorerInfo = () => {
+const getExplorerInfo = () => {
   let t = navigator.userAgent.toLowerCase();
   return 0 <= t.indexOf("msie") ? { //ie < 11
       type: "IE",
@@ -69,4 +69,13 @@ export const getExplorerInfo = () => {
       type: t,
       version: -1
   }
+}
+
+export default {
+  isMobile,
+  isAppleMobileDevice,
+  isAndroidMobileDevice,
+  osType,
+  broswer,
+  getExplorerInfo,
 }

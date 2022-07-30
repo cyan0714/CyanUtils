@@ -1,7 +1,7 @@
 /**
  * 对象深拷贝
  */
- export const deepClone = data => {
+ const deepClone = data => {
   var type = getObjType(data)
   var obj
   if (type === 'array') {
@@ -27,7 +27,7 @@
 /**
  * 对象扁平化
  */
-export const flattenObj = (obj, result = {}) => {
+const flattenObj = (obj, result = {}) => {
   for (let key in obj) {
     if (obj[key] && typeof obj[key] == 'object') {
       flattenObj(obj[key], result)
@@ -36,4 +36,9 @@ export const flattenObj = (obj, result = {}) => {
     }
   }
   return result
+}
+
+export default {
+  deepClone,
+  flattenObj
 }

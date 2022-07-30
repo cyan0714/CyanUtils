@@ -1,5 +1,5 @@
 // 滚动到页面顶部
-export const scrollToTop = () => {
+const scrollToTop = () => {
   const height = document.documentElement.scrollTop || document.body.scrollTop
   if (height > 0) {
     window.requestAnimationFrame(scrollToTop)
@@ -8,19 +8,19 @@ export const scrollToTop = () => {
 }
 
 // 滚动到页面底部
-export const scrollToBottom = () => {
+const scrollToBottom = () => {
   window.scrollTo(0, document.documentElement.clientHeight)
 }
 
 // 滚动到指定元素区域
-export const smoothScroll = element => {
+const smoothScroll = element => {
   document.querySelector(element).scrollIntoView({
     behavior: 'smooth'
   })
 }
 
 // 获取可视窗口高度
-export const getClientHeight = () => {
+const getClientHeight = () => {
   let clientHeight = 0
   if (document.body.clientHeight && document.documentElement.clientHeight) {
     clientHeight =
@@ -37,12 +37,12 @@ export const getClientHeight = () => {
 }
 
 // 获取可视窗口宽度
-export const getClientWidth = () => {
+const getClientWidth = () => {
   return (document.compatMode == 'BackCompat' ? document.body : document.documentElement).clientWidth
 }
 
 // 打开浏览器全屏
-export const toFullScreen = () => {
+const toFullScreen = () => {
   let element = document.body;
   if (element.requestFullscreen) {
     element.requestFullscreen()
@@ -56,7 +56,7 @@ export const toFullScreen = () => {
 }
 
 // 退出浏览器全屏
-export const exitFullscreen = () => {
+const exitFullscreen = () => {
   if (document.exitFullscreen) {
     document.exitFullscreen()
   } else if (document.msExitFullscreen) {
@@ -66,6 +66,16 @@ export const exitFullscreen = () => {
   } else if (document.webkitExitFullscreen) {
     document.webkitExitFullscreen()
   }
+}
+
+export default {
+  scrollToTop,
+  scrollToBottom,
+  smoothScroll,
+  getClientHeight,
+  getClientWidth,
+  toFullScreen,
+  exitFullscreen
 }
 
 

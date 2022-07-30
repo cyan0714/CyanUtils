@@ -1,5 +1,5 @@
 // 生成随机 len 位数字
- export const randomLenNum = (len, date) => {
+ const randomLenNum = (len, date) => {
   let random = ''
   random = Math.ceil(Math.random() * 100000000000000)
     .toString()
@@ -9,7 +9,7 @@
 }
 
 // 指定范围随机数
-export const randomRangeNum = (min, max) => {
+const randomRangeNum = (min, max) => {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
@@ -18,7 +18,7 @@ export const randomRangeNum = (min, max) => {
  * @param { number } val 输入的数字
  * @param { number } maxNum 数字规定界限
  */
- export const outOfNum = (val, maxNum) =>{
+ const outOfNum = (val, maxNum) =>{
   val = val ? val-0 :0;
   if (val > maxNum ) {
       return `${maxNum}+`
@@ -28,7 +28,7 @@ export const randomRangeNum = (min, max) => {
 };
 
 // 数字转化为大写金额
-export const digitUppercase = (n) => {
+const digitUppercase = (n) => {
   const fraction = ['角', '分'];
   const digit = [
       '零', '壹', '贰', '叁', '肆',
@@ -59,7 +59,7 @@ export const digitUppercase = (n) => {
 };
 
 // 数字转化为中文数字
-export const intToChinese = (value) => {
+const intToChinese = (value) => {
   const str = String(value);
   const len = str.length-1;
   const idxs = ['','十','百','千','万','十','百','千','亿','十','百','千','万','十','百','千','亿'];
@@ -90,12 +90,12 @@ export const intToChinese = (value) => {
  }
  
 // 数字千位符分隔
-export const numThousandFormat = (n) => {
+const numThousandFormat = (n) => {
   return (nums || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,');
 }
 
 // 格式化金额(千分符、小数点保留两位)
-export const amountFormat = (val) => {
+const amountFormat = (val) => {
   if (val === undefined) {
     val = 0
   }
@@ -116,4 +116,14 @@ export const amountFormat = (val) => {
     }
   }
   return val
+}
+
+export default {
+  randomLenNum,
+  randomRangeNum,
+  outOfNum,
+  digitUppercase,
+  intToChinese,
+  numThousandFormat,
+  amountFormat
 }

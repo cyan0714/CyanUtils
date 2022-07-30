@@ -3,7 +3,7 @@
  * @param {String} path - 文件地址
  * @param {String} name - 文件名,eg: test.png
  */
-export const downloadFileBlob = (path, name) => {
+const downloadFileBlob = (path, name) => {
   const xhr = createCORSRequest('GET', path)
   xhr.responseType = 'blob'
   xhr.setRequestHeader('Cache-Control', 'no-cache')
@@ -33,7 +33,7 @@ export const downloadFileBlob = (path, name) => {
  * @param {String} path - 文件地址
  * @param {String} name - 文件名,eg: test.png
  */
-export const downloadFileBase64 = (path, name) => {
+const downloadFileBase64 = (path, name) => {
   const xhr = new XMLHttpRequest()
   xhr.open('get', path)
   xhr.responseType = 'blob'
@@ -53,4 +53,9 @@ export const downloadFileBase64 = (path, name) => {
       }
     }
   }
+}
+
+export default {
+  downloadFileBlob,
+  downloadFileBase64
 }

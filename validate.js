@@ -2,7 +2,7 @@
  * 邮箱
  * @param {*} s
  */
-export function isEmail(s) {
+function isEmail(s) {
   return /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]{2,3}){1,2})$/.test(s)
 }
 
@@ -11,14 +11,14 @@ export function isEmail(s) {
  * @param email
  * @returns {boolean}
  */
-export function validateEmail(email) {
+function validateEmail(email) {
   const re =
     /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   return re.test(email)
 }
 
 // 校验是否为中国大陆的邮政编码
-export const isPostCode = value => {
+const isPostCode = value => {
   return /^[1-9][0-9]{5}$/.test(value.toString())
 }
 
@@ -26,7 +26,7 @@ export const isPostCode = value => {
  * 手机号码
  * @param {*} s
  */
-export const isTel = value => {
+const isTel = value => {
   return /^1[3,4,5,6,7,8,9][0-9]{9}$/.test(value.toString())
 }
 
@@ -34,7 +34,7 @@ export const isTel = value => {
  * 电话号码
  * @param {*} s
  */
-export function isPhone(s) {
+function isPhone(s) {
   return /^([0-9]{3,4}-)?[0-9]{7,8}$/.test(s)
 }
 
@@ -43,7 +43,7 @@ export function isPhone(s) {
  * @param {*} str
  * @return {*}
  */
- export const regIdCard = str => {
+ const regIdCard = str => {
   const weight_factor = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
   const check_code = ['1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2'];
   const idcard_patter = /^[1-9][0-9]{5}([1][9][0-9]{2}|[2][0][0|1][0-9])([0][1-9]|[1][0|1|2])([0][1-9]|[1|2][0-9]|[3][0|1])[0-9]{3}([0-9]|[X])$/;
@@ -57,25 +57,25 @@ export function isPhone(s) {
 }
 
 // 小写字母
-export function validateLowerCase(str) {
+function validateLowerCase(str) {
   const reg = /^[a-z]+$/
   return reg.test(str)
 }
 
 // 大写字母
-export function validateUpperCase(str) {
+function validateUpperCase(str) {
   const reg = /^[A-Z]+$/
   return reg.test(str)
 }
 
 // 大小写字母
-export function validatAlphabets(str) {
+function validatAlphabets(str) {
   const reg = /^[A-Za-z]+$/
   return reg.test(str)
 }
 
 /*验证 pad 还是 pc*/
-export const vaildatePc = function () {
+const vaildatePc = function () {
   const userAgentInfo = navigator.userAgent
   const Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod']
   let flag = true
@@ -89,14 +89,14 @@ export const vaildatePc = function () {
 }
 
 // 判断姓名是否正确
-export function validatename(name) {
+function validatename(name) {
   var regName = /^[\u4e00-\u9fa5]{2,4}$/
   if (!regName.test(name)) return false
   return true
 }
 
 // 判断是否为整数
-export function validatenum(num, type) {
+function validatenum(num, type) {
   let regName = /[^\d.]/g
   if (type == 1) {
     if (!regName.test(num)) return false
@@ -108,7 +108,7 @@ export function validatenum(num, type) {
 }
 
 // 判断是否为小数
-export function validatenumord(num, type) {
+function validatenumord(num, type) {
   let regName = /[^\d.]/g
   if (type == 1) {
     if (!regName.test(num)) return false
@@ -120,7 +120,7 @@ export function validatenumord(num, type) {
 }
 
 // 检验是否为空，空值有：''、null、undefined、[]、{  }
-export function validatenull(val) {
+function validatenull(val) {
   if (typeof val == 'boolean') {
     return false
   }
@@ -139,7 +139,7 @@ export function validatenull(val) {
 }
 
 // 校验银行卡号
-export function checkBankNumber(bankno) {
+function checkBankNumber(bankno) {
   var lastNum = bankno.substr(bankno.length - 1, 1) //取出最后一位（与luhm进行比较）
   var first15Num = bankno.substr(0, bankno.length - 1) //前15或18位
   var newArr = []
@@ -192,12 +192,12 @@ export function checkBankNumber(bankno) {
 }
 
 // 校验是否包含中文
-export const haveCNChars = value => {
+const haveCNChars = value => {
   return /[\u4e00-\u9fa5]/.test(value)
 }
 
 // 人名是否是中文校验
-export const StringIsCNName = str => {
+const StringIsCNName = str => {
   if (!str.trim()) return false;
   let re = /[^\u4e00-\u9fa5]/;
   if (re.test(str)) return false;
@@ -208,19 +208,19 @@ export const StringIsCNName = str => {
  * 验证不能包含字母
  * @param { string } value
  */
-export const isNoWord = value => /^[^A-Za-z]*$/g.test(value)
+const isNoWord = value => /^[^A-Za-z]*$/g.test(value)
 
 /**
  * 验证车牌号
  * @param { string } value
  */
-export const isLicensePlateNumber = value =>
+const isLicensePlateNumber = value =>
   /^(?:[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领 A-Z]{1}[A-HJ-NP-Z]{1}(?:(?:[0-9]{5}[DF])|(?:[DF](?:[A-HJ-NP-Z0-9])[0-9]{4})))|(?:[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领 A-Z]{1}[A-Z]{1}[A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9 挂学警港澳]{1})$/g.test(
     value
   )
 
 // 校验是否为 IPv6 地址
-export const isIPv6 = str => {
+const isIPv6 = str => {
   return Boolean(
     str.match(/:/g)
       ? str.match(/:/g).length <= 7
@@ -231,7 +231,7 @@ export const isIPv6 = str => {
 }
 
 // 校验是否包含 emoji 表情
-export const isEmojiCharacter = value => {
+const isEmojiCharacter = value => {
   value = String(value)
   for (let i = 0; i < value.length; i++) {
     const hs = value.charCodeAt(i)
@@ -274,22 +274,48 @@ export const isEmojiCharacter = value => {
   return false
 }
 //  来往内地通行证（香港居民）
- export const StringIsHongKongTXZ = str => {
+ const StringIsHongKongTXZ = str => {
   if (!str.trim()) return false;
   let re = new RegExp(/^([Hh]\d{8})$/);
   return re.test(str);
 };
 
 // 来往内地通行证（澳门居民）
-export const StringIsMacaoTXZ = str => {
+const StringIsMacaoTXZ = str => {
   if (!str.trim()) return false;
   let re = new RegExp(/^([Mm]\d{8})$/);
   return re.test(str);
 };
 
 // 来往大陆通行证（台湾居民）
-export const StringIsTaiWanTXZ = str => {
+const StringIsTaiWanTXZ = str => {
   if (!str.trim()) return false;
   let re = new RegExp(/^\d{8}$/);
   return re.test(str);
 };
+
+export default {
+  isEmail,
+  validateEmail,
+  isPostCode,
+  isTel,
+  isPhone,
+  regIdCard,
+  validateLowerCase,
+  validateUpperCase,
+  validatAlphabets,
+  vaildatePc,
+  validatename,
+  validatenum,
+  validatenumord,
+  validatenull,
+  checkBankNumber,
+  haveCNChars,
+  StringIsCNName,
+  isLicensePlateNumber,
+  isIPv6,
+  isEmojiCharacter,
+  StringIsHongKongTXZ,
+  StringIsMacaoTXZ,
+  StringIsTaiWanTXZ
+}

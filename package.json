@@ -4,8 +4,10 @@
   "description": "Commonly used utility functions at work",
   "main": "index.js",
   "scripts": {
+    "auto": "node auto.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/cyan0714/CyanUtils"
@@ -17,5 +19,8 @@
     "utils"
   ],
   "author": "Shiyan Chen",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "file-save": "^0.2.0"
+  }
 }

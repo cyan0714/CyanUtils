@@ -1,5 +1,5 @@
 //=======================================日期间隔=======================================
-export const calcDate = (date1, date2) => {
+const calcDate = (date1, date2) => {
   let date3 = date2 - date1
 
   let days = Math.floor(date3 / (24 * 3600 * 1000))
@@ -21,7 +21,7 @@ export const calcDate = (date1, date2) => {
 }
 
 //=======================================日期格式化=======================================
-export const dateFormat = (date, format) => {
+const dateFormat = (date, format) => {
   format = format || 'yyyy-MM-dd hh:mm:ss'
   if (date !== 'Invalid Date') {
     let o = {
@@ -43,7 +43,7 @@ export const dateFormat = (date, format) => {
 }
 
 //=======================================当前时间=======================================
-export const nowTime = () => {
+const nowTime = () => {
   const now = new Date()
   const year = now.getFullYear()
   const month = now.getMonth()
@@ -55,7 +55,7 @@ export const nowTime = () => {
 }
 
 //=======================================获取昨天日期，格式：2022-04-22=======================================
-export const getYesterday = () => {
+const getYesterday = () => {
   let date = new Date();
   let y = date.getFullYear();
   let m = date.getMonth() + 1;
@@ -70,7 +70,7 @@ export const getYesterday = () => {
 }
 
 //=======================================获取上个月或年，格式：getLastMonth('month') => 3, getLastMonth('year') => 2022, getLastMonth() => 2022-03 =====================================
-export const getLastMonth = (type) => {
+const getLastMonth = (type) => {
   var date = new Date();
   var year = date.getFullYear();   //当前年：四位数字
   var month = date.getMonth();     //当前月：0-11
@@ -91,5 +91,13 @@ export const getLastMonth = (type) => {
     return lastYearMonth;
   }
 
+}
+
+export default {
+  calcDate,
+  dateFormat,
+  nowTime,
+  getYesterday,
+  getLastMonth
 }
 

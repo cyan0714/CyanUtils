@@ -1,7 +1,7 @@
 /**
  * 数组扁平化
  */
-export const flattenArr = arr => {
+ const flattenArr = arr => {
   let result = []
 
   for (let i = 0; i < arr.length; i++) {
@@ -17,7 +17,7 @@ export const flattenArr = arr => {
 /**
  * 扁平化数组转树结构 （导航栏常用）
  */
-export const arrayToTree = items => {
+ const arrayToTree = items => {
   const result = [] // 存放结果集
   const itemMap = {} //
   for (const item of items) {
@@ -52,7 +52,7 @@ export const arrayToTree = items => {
  * @param { array} arr1
  * @param { array } arr2
  */
-export const similarity = (arr1, arr2) => arr1.filter(v => arr2.includes(v))
+ const similarity = (arr1, arr2) => arr1.filter(v => arr2.includes(v))
 
 
 /**
@@ -62,4 +62,10 @@ export const similarity = (arr1, arr2) => arr1.filter(v => arr2.includes(v))
  */
  export function countOccurrences(arr, value) {
   return arr.reduce((a, v) => v === value ? a + 1 : a + 0, 0);
+}
+
+export default {
+  similarity,
+  arrayToTree,
+  flattenArr
 }

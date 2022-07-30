@@ -1,10 +1,10 @@
 // 获取顶部地址栏地址
-export const getTopUrl = () => {
+const getTopUrl = () => {
   return window.location.href.split('/#/')[0]
 }
 
 // 获取 URL 参数列表
-export const getUrlParamsList = () => {
+const getUrlParamsList = () => {
   let url = location.search
   const paramsStr = /.+\?(.+)$/.exec(url)[1] // 将 ? 后面的字符串取出来
   const paramsArr = paramsStr.split('&') // 将字符串以 & 分割后存到数组中
@@ -32,7 +32,7 @@ export const getUrlParamsList = () => {
 }
 
 // 检测 URL 是否有效
-export const getUrlState = URL => {
+const getUrlState = URL => {
   let xmlhttp = new ActiveXObject('microsoft.xmlhttp')
   xmlhttp.Open('GET', URL, false)
   try {
@@ -53,7 +53,7 @@ export const getUrlState = URL => {
 }
 
 // 键值对拼接成 URL 参数
-export const params2Url = obj => {
+const params2Url = obj => {
   let params = []
   for (let key in obj) {
     params.push(`${key}=${obj[key]}`)
@@ -62,7 +62,7 @@ export const params2Url = obj => {
 }
 
 // 修改 URL 中的参数
-export const replaceParamVal = (paramName, replaceWith) => {
+const replaceParamVal = (paramName, replaceWith) => {
   const oUrl = location.href.toString()
   const re = eval('/(' + paramName + '=)([^&]*)/gi')
   location.href = oUrl.replace(re, paramName + '=' + replaceWith)
@@ -70,7 +70,7 @@ export const replaceParamVal = (paramName, replaceWith) => {
 }
 
 // 删除 URL 中指定参数
-export const delParamVal = name => {
+const delParamVal = name => {
   const baseUrl = location.origin + location.pathname + '?'
   const query = location.search.substr(1)
   if (query.indexOf(name) > -1) {
@@ -89,4 +89,13 @@ export const delParamVal = name => {
         .replace(/\,/g, '&')
     )
   }
+}
+
+export default {
+  getTopUrl,
+  getUrlParamsList,
+  getUrlState,
+  params2Url,
+  replaceParamVal,
+  delParamVal,
 }
