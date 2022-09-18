@@ -4,7 +4,7 @@
   "description": "Commonly used utility functions at work",
   "main": "index.js",
   "scripts": {
-    "auto": "node auto.js",
+    "auto": "node ./scripts/auto.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
@@ -19,8 +19,5 @@
     "utils"
   ],
   "author": "Shiyan Chen",
-  "license": "MIT",
-  "dependencies": {
-    "file-save": "^0.2.0"
-  }
+  "license": "MIT"
 }

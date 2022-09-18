@@ -1,16 +1,17 @@
 import path from 'path'
 import fs from 'fs'
-import array from './array.js'
-import browser from './browser.js'
-import date from './date.js'
-import equipment from './equipment.js'
-import number from './number.js'
-import object from './object.js'
-import string from './string.js'
-import url from './url.js'
-import utils from './utils.js'
-import validate from './validate.js'
+import array from '../src/array.js'
+import browser from '../src/browser.js'
+import date from '../src/date.js'
+import equipment from '../src/equipment.js'
+import number from '../src/number.js'
+import object from '../src/object.js'
+import string from '../src/string.js'
+import url from '../src/url.js'
+import utils from '../src/utils.js'
+import validate from '../src/validate.js'
 
+// path.resolve() will return the absolute path of the current working directory.
 const __dirname = path.resolve()
 const targetPath = path.resolve(__dirname, './index.js')
 const jsFiles = [
