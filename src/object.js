@@ -38,7 +38,25 @@ const flattenObj = (obj, result = {}) => {
   return result
 }
 
+/**
+ * 树结构转一维数组
+ */
+const getOneArr = (arr) => {
+  let data = JSON.parse(JSON.stringify(arr))
+  let newData = []
+  const callback = (item) => {
+      (item.children || (item.children = [])).map(v => {
+          callback(v)
+      })
+      delete item.children
+      newData.push(item)
+  }
+  data.map(v => callback(v))
+  return newData
+}
+
 export default {
   deepClone,
-  flattenObj
+  flattenObj,
+  getOneArr
 }

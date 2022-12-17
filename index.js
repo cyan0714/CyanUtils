@@ -8,7 +8,7 @@ export { isMobile, isAppleMobileDevice, isAndroidMobileDevice, osType, broswer, 
 
 export { randomLenNum, randomRangeNum, outOfNum, digitUppercase, intToChinese, numThousandFormat, amountFormat, } from './number.js'
 
-export { deepClone, flattenObj, } from './object.js'
+export { deepClone, flattenObj, getOneArr, } from './object.js'
 
 export { randomString, turnCase, randomHexColorCode, telFormat, getKebabCase, getCamelCase, trimBlank, toCDB, toDBC, } from './string.js'
 
