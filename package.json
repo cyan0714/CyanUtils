@@ -1,11 +1,10 @@
 {
   "name": "vae-utils",
   "version": "1.0.3",
-  "description": "Commonly used utility functions at work",
+  "description": "CyanUtils - A lightweight JavaScript utility library with commonly used functions for array, string, date, validation, browser operations and more",
   "main": "index.js",
   "scripts": {
-    "auto": "node ./scripts/auto.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "auto": "node ./scripts/auto.js"
   },
   "type": "module",
   "repository": {
@@ -13,11 +12,39 @@
     "url": "https://github.com/cyan0714/CyanUtils"
   },
   "homepage": "https://github.com/cyan0714/CyanUtils",
+  "bugs": {
+    "url": "https://github.com/cyan0714/CyanUtils/issues"
+  },
   "keywords": [
-    "yan",
+    "javascript",
+    "utils",
+    "utilities",
+    "helper",
+    "toolkit",
     "cyan",
-    "utils"
+    "array",
+    "string",
+    "date",
+    "validation",
+    "browser",
+    "url",
+    "object",
+    "number",
+    "es6",
+    "modules"
   ],
-  "author": "Shiyan Chen",
-  "license": "MIT"
+  "author": {
+    "name": "Shiyan Chen",
+    "url": "https://github.com/cyan0714"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=12.0.0"
+  }
 }
