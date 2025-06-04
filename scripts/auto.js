@@ -57,6 +57,11 @@ const jsFiles = [
   }
 ]
 
+fs.writeFileSync(
+  targetPath,
+  ``
+)
+
 jsFiles.forEach(f => {
   let exportStr = ''
   for (let func in f.fileValue) {

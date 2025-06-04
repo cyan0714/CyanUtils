@@ -2,13 +2,13 @@ export { similarity, arrayToTree, flattenArr, } from './array.js'
 
 export { scrollToTop, scrollToBottom, smoothScroll, getClientHeight, getClientWidth, toFullScreen, exitFullscreen, } from './browser.js'
 
-export { calcDate, dateFormat, nowTime, getYesterday, getLastMonth, } from './date.js'
+export { calcDate, dateFormat, nowTime, getYesterday, getLastMonth, timeAgo, } from './date.js'
 
 export { isMobile, isAppleMobileDevice, isAndroidMobileDevice, osType, broswer, getExplorerInfo, } from './equipment.js'
 
-export { randomLenNum, randomRangeNum, outOfNum, digitUppercase, intToChinese, numThousandFormat, amountFormat, } from './number.js'
+export { randomLenNum, randomRangeNum, outOfNum, digitUppercase, intToChinese, numThousandFormat, amountFormat, numberFormatter, } from './number.js'
 
-export { deepClone, flattenObj, } from './object.js'
+export { deepClone, flattenObj, getOneArr, } from './object.js'
 
 export { randomString, turnCase, randomHexColorCode, telFormat, getKebabCase, getCamelCase, trimBlank, toCDB, toDBC, } from './string.js'
 
